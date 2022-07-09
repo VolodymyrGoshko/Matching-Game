@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Ubuntu&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: url("assets/1.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    display: none;
+    justify-content: space-between;
+    margin: 5px 0;
+    animation: nav 1s forwards;
+}
+
+@keyframes nav {
+    0%{
+        transform: scale(0);
+        width: 200px;
+    }
+    50% {
+        transform: scale(1.1);
+        width: 300px;
+    }
+    100% {
+        transform: scale(1);
+        width: 200px;
+    }
+}
+
+.btn-reload {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.start-game {
+    font-size: 30px;
+    border: 1px solid #000;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .6);
+    margin-bottom: 200px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform .5s ease;
+}
+
+.start-game:hover {
+    transform: scale(1.1);
+}
+
+.start-game.active {
+    transform: scale(0);
+}
+
+.main-box {
+    width: 500px;
+    height: 500px;
+    background: #a5a5a5;
+    border-radius: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+    animation: animate 1s forwards;
+}
+
+@keyframes animate {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.title {
+    padding: 10px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.wrapper {
+    width: 460px;
+    height: 460px;
+    display: grid;
+    grid-template-columns: repeat(4, 115px);
+    perspective: 800px;
+}
+
+.wrapper-item {
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #fff;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 15px;
+}
+
+.face,.back {
+    position: absolute;
+    pointer-events: none;
+}
+
+.back {
+    height: 100%;
+    width: 100%;
+    background-color: #283540;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+}
+
+.red {
+    background-color: red!important;
+}
+
+.lives-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 28px;
+}
+
+.heart {
+    font-size: 20px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 700px;
+    height: 300px;
+    background-color: #fff;
+    margin-bottom: 180px;
+    border-radius: 10px;
+    font-family: 'Indie Flower', cursive;
+    transition: all 1s ease;
+    animation: animate 1s forwards;
+}
+
+.modal.active {
+    animation: modal 1s forwards;
+}
+
+@keyframes modal {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+    font-size: 30px;
+}
+
+.modal-lives, .modal-time {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.modal-time {
+    margin: 20px 0;
+}
+
+.modal-count {
+    margin: 0 10px;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    border: 1px solid #000;
+    width: 200px;
+    margin: 0 auto;
+    padding: 6px;
+    border-radius: 10px;
+    background-color: #000000d1;
+    color: #fff;
+    cursor: pointer;
+}
